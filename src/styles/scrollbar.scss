@@ -1,0 +1,19 @@
+@import "variables";
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 5px;
+  border: 2px solid #141414;
+  transition: 0.5s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #252525;
+  border-radius: 5px;
+  border: 2px solid #141414;
+}
