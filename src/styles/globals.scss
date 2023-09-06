@@ -6,10 +6,9 @@
   box-sizing: border-box;
 }
 
-
-
 body, html {
   width: 100vw;
+  //padding-right: $scrollbar-width;
   overflow-x: hidden;
 
 }
