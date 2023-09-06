@@ -4,28 +4,40 @@ import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {colors} from "../assets/colors";
 
+
+
 const Main = () => {
   useEffect(() => {
+
+    const wrapper = document.getElementsByClassName(s.wrapper)
+
     gsap.registerPlugin(ScrollTrigger)
-    // const wrapperTrigger = ScrollTrigger.create ({
-    //   trigger : 'button',
-    //   start: 'top 30%',
-    //   end: 'center 90%',
-    //   scrub: true,
-    //   markers: true
+
+    // const gt = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger : wrapper[1],
+    //     start: 'top 70%',
+    //     end: '10% 70%',
+    //     scrub: 1,
+    //     markers: 1
+    //   }
     // })
 
-    gsap.from('.wrapper', {
-      scrollTrigger: {
-        trigger : '.wrapper',
+    for (let i=0; i < wrapper.length; i++) {
+      const wrapperTrigger = {
+        trigger : wrapper[i],
         start: 'top 70%',
         end: '10% 70%',
         scrub: 1,
         markers: 1
-      },
-      width: '80%',
+      }
 
-    })
+      gsap.from(wrapper[i], {
+        scrollTrigger: wrapperTrigger,
+        ease: 1,
+        width: '50%',
+      })
+    }
     const scrollPosition = () => window.pageYOffset;
 
     const canvas = document.getElementsByTagName('canvas')[0]
@@ -33,8 +45,14 @@ const Main = () => {
     const image = new Image(1920, 1080)
     image.onload = drawImageActualSize;
     document.addEventListener('scroll', e => {
-      console.log(colors)
-      image.src = colors[Math.round(scrollPosition() / 100)]
+      // console.log(gt)
+
+      if (Math.round(scrollPosition() / 50) > 119) {
+        canvas.style.opacity = '0';
+      } else {
+        canvas.style.opacity = '1';
+        image.src = colors[Math.round(scrollPosition() / 50)]
+      }
     })
 
     function drawImageActualSize() {
@@ -52,16 +70,20 @@ const Main = () => {
       </div>
 
 
-      <div className={s.null} style={{marginTop: '50vh', color: "black"}}>
+      <div className={s.null} style={{marginTop: '50vh'}}>
         <h1>1 Main</h1>
       </div>
 
-      <div className={s.wrapper}>
+      <div className={s.wrapper} id={'cont1'}>
 
       </div>
 
       <div className={s.null}>
         <h1>2 Main</h1>
+      </div>
+
+      <div className={s.wrapper} id={'cont2'}>
+
       </div>
 
       <div className={s.null}>
