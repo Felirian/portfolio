@@ -1,0 +1,76 @@
+@import "../styles.scss";
+
+.photo {
+  width: initial;
+
+  display: flex;
+  flex-direction: column;
+  margin: 100vh 10px;
+  gap: 10px;
+  .main {
+    width: 100%;
+    height: 300vh;
+
+    img {
+      top: 0;
+      position: sticky;
+      width: 100%;
+      height: auto;
+      margin-bottom: -10%;
+    }
+    h1 {
+      position: relative;
+      display: block;
+      z-index: 99;
+      color: red;
+    }
+  }
+  .grid1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 10px;
+    height: 1526px;
+    .image_wrapper {
+      overflow: hidden;
+      .image1 {
+        transform: scale(1.2) translateY(10%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1.3fr 2fr 1fr;
+    grid-template-rows: 3fr 1fr 3fr 3fr;
+    grid-gap: 10px;
+    height: 1809px;
+    .image_wrapper {
+      overflow: hidden;
+      .image2 {
+        transform: scale(1.25) translateY(10%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .grid3 {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 5fr;
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 10px;
+    height: 1188px;
+    .image_wrapper {
+      overflow: hidden;
+      .image3 {
+        transform: scale(1.25) translateY(10%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

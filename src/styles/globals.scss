@@ -7,11 +7,13 @@
 }
 #root{
   width: 100%;
+
 }
 html{
+  background-color: $color-bg-1;
   width: 100vw;
 }
-body, html {
+body{
   width: 100%;
   //padding-right: $scrollbar-width;
   overflow-x: hidden;

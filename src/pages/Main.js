@@ -1,12 +1,14 @@
 import React from 'react';
 import s from '../styles/pages/main.module.scss'
-import Photos from "../components/Photos";
+import Portrait from "../components/Portrait";
+import Conceptual from "../components/Conceptual";
 
 const Main = () => {
 
   return (
     <div className={s.main}>
-      <Photos />
+      {/*<Portrait />*/}
+      <Conceptual />
     </div>
   );
 };

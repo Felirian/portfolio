@@ -30,11 +30,11 @@ const TestPage = () => {
       scrub: 1,
       markers: 1
     }
-
     gsap.from(wrapper[i], {
       scrollTrigger: wrapperTrigger,
       ease: 1,
       width: '50%',
+      borderRadius: 60
     })
   }
   const scrollPosition = () => window.pageYOffset;
