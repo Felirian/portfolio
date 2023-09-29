@@ -6,6 +6,8 @@
 .pnp.js
 .idea
 src/assets/v3.mp4
+.firebase
+.firebaserc
 # testing
 /coverage
 
