@@ -4,18 +4,47 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  //border: 1px solid red;
 }
 #root{
   width: 100%;
-
 }
+
 html{
   background-color: $color-bg-1;
   width: 100vw;
+  color: $color-text-1;
+  scroll-behavior: smooth;
 }
 body{
   width: 100%;
   //padding-right: $scrollbar-width;
   overflow-x: hidden;
+}
+a{
+  text-decoration: none;
+}
 
+h1{
+
+}
+h2{
+
+}
+h3{
+  text-align: right;
+  font-family: Jost;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 250;
+  line-height: 120%; /* 57.6px */
+}
+
+.water_snack{
+  font-family: Jost;
+  font-weight: 600;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 10%;
 }
