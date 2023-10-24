@@ -1,7 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import s from './MagicCursor.module.scss'
+import {MagicCursorHover, MagicCursorInfo} from "../context";
 const MagicCursor = () => {
-
+  const [info, setInfo] = useContext(MagicCursorInfo)
+  const [hover, setHover] = useContext(MagicCursorHover)
   useEffect(() => {
     const cursor = document.getElementById('magic_cursor')
     document.addEventListener('mousemove', ev => {
@@ -9,6 +11,7 @@ const MagicCursor = () => {
       cursor.style.top = ev.clientY + -20 + 'px';
     })
   }, []);
+
   return (
     <>
       <div
