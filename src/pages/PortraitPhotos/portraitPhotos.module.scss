@@ -1,0 +1,29 @@
+
+.portrait_wrapper {
+  margin: 0.52vw;
+
+  .photos_wrapper {
+    width: 100%;
+    display: grid;
+    grid-gap: 0.52vw;
+    grid-auto-flow: row dense;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+            'i1 i1 i1 i1 i2 i2 i2 i2 i3 i3 i3 i3'
+            'i4 i4 i4 i4 i4 i4 i5 i5 i5 i5 i5 i5'
+            'i6 i6 i6 i6 i6 i6 i6 i6 i6 i6 i6 i6'
+            'i7 i7 i7 i7 i7 i7 i8 i8 i8 i8 i8 i8'
+  ;
+
+    @for $i from 1 to 10 {
+      div:nth-child(#{$i}) {
+        grid-area: i+$i;
+      }
+    }
+
+
+
+
+  }
+}

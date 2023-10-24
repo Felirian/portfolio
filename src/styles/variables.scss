@@ -11,4 +11,13 @@ $color-text-2: #8C8C8C;
 $color-text-3: #0D0D0D;
 
 //-----values------//
-$scrollbar-width: 5px
+$scrollbar-width: 5px;
+
+//-----FONTS------//
+@font-face {
+  font-family: 'Jost';
+  src: url("./fonts/Jost-VariableFont_wght.ttf");
+}
+@mixin Jost {
+  font-family: "Jost", sans-serif;
+}

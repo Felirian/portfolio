@@ -3,9 +3,10 @@ import "./styles/styles.scss"
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Main from "./pages/Main/Main";
 import TestPage from "./pages/TestPage";
-import ConceptualPhoto from "./pages/ConceptualPhoto/ConceptualPhoto";
+import ConceptualPhotos from "./pages/ConceptualPhotos/ConceptualPhotos";
 import MagicCursor from "./components/MagicCursor/MagicCursor";
 import {MagicCursorInfo, MagicCursorHover} from "./components/context";
+import PortraitPhotos from "./pages/PortraitPhotos/PortraitPhotos";
 
 function App() {
   const [info, setInfo] = useState('')
@@ -17,7 +18,8 @@ function App() {
           <p className={'water_snack'}>@FELIRIAN</p>
           <Routes>
             <Route path={'/*'} element={<Main/>}/>
-            <Route path={'/conceptual'} element={<ConceptualPhoto/>}/>
+            <Route path={'/conceptual'} element={<ConceptualPhotos/>}/>
+            <Route path={'/portrait'} element={<PortraitPhotos/>}/>
             <Route path={'/test'} element={<TestPage/>}/>
             <Route path="*" element={<Navigate to={'/'} replace/>}/>
           </Routes>

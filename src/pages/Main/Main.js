@@ -1,11 +1,14 @@
-import React, {useLayoutEffect} from 'react';
+import React, {useContext, useLayoutEffect} from 'react';
 import s from './main.module.scss'
 import inscriptionIMG from '../../assets/main/inscription.png'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {Link} from "react-router-dom";
+import {MagicCursorHover, MagicCursorInfo} from "../../components/context";
 
 const Main = () => {
+  const [info, setInfo] = useContext(MagicCursorInfo)
+  const [hover, setHover] = useContext(MagicCursorHover)
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const TAB_LINE = document.getElementsByClassName(s.line)
@@ -25,7 +28,7 @@ const Main = () => {
           start: '10% 100%',
           end: '90% 100%',
           scrub: i,
-          markers: 1
+          markers: 0
         },
         ease: "power1.inOut",
         height: 0,
@@ -66,19 +69,49 @@ const Main = () => {
         <img src={inscriptionIMG} alt={'image'} id={'inscription_img'}/>
       </div>
       <div className={s.tabs} id={'tabs'}>
-        <Link to={'/test'} className={s.tab}>
+        <Link
+          to={'/test'}
+          className={s.tab}
+          onMouseEnter={() => {
+            setHover(true)
+            setInfo('Coding-Опыт: 2 года')
+          }}
+          onMouseLeave={() => setHover(false)}
+        >
           <h3>coding</h3>
         </Link>
         <div className={s.line}/>
-        <Link className={s.tab}>
+        <Link
+          to={'/portrait'}
+          className={s.tab}
+          onMouseEnter={() => {
+            setHover(true)
+            setInfo('Photo-Опыт: 4 года')
+          }}
+          onMouseLeave={() => setHover(false)}
+        >
           <h3>photo</h3>
         </Link>
         <div className={s.line}/>
-        <Link className={s.tab}>
+        <Link
+          className={s.tab}
+          onMouseEnter={() => {
+            setHover(true)
+            setInfo('UX/UI-Опыт: 3 года')
+          }}
+          onMouseLeave={() => setHover(false)}
+        >
           <h3>ux / ui</h3>
         </Link>
         <div className={s.line}/>
-        <Link className={s.tab}>
+        <Link
+          className={s.tab}
+          onMouseEnter={() => {
+            setHover(true)
+            setInfo('Modeling-Опыт: 1 год')
+          }}
+          onMouseLeave={() => setHover(false)}
+        >
           <h3>modeling</h3>
         </Link>
       </div>
