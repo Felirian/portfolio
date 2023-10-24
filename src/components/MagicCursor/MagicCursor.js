@@ -11,8 +11,8 @@ const MagicCursor = () => {
   useEffect(() => {
     const cursor = document.getElementById('magic_cursor')
     document.addEventListener('mousemove', ev => {
-      cursor.style.left = ev.clientX + -20 + 'px';
-      cursor.style.top = ev.clientY + -20 + 'px';
+      cursor.style.left = ev.clientX + -25 + 'px';
+      cursor.style.top = ev.clientY + -25 + 'px';
     })
   }, []);
 
