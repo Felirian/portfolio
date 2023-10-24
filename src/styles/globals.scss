@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
   //border: 1px solid red;
 }
 #root{
@@ -47,4 +48,19 @@ h3{
   top: 0;
   left: 0;
   opacity: 10%;
+}
+
+#main {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  position: relative;
+  overflow: auto;
+}
+#inscription {
+  scroll-snap-align: start;
+  position: relative;
+}
+#tabs {
+  scroll-snap-align: start;
+  position: relative;
 }

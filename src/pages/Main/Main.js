@@ -60,7 +60,7 @@ const Main = () => {
   }, []);
 
   return (
-    <div className={s.main}>
+    <div className={s.main} id={'main'}>
       <div className={s.inscription} id={'inscription'}>
         <h1 id={'inscription_text'}>PORTFOLIO</h1>
         <img src={inscriptionIMG} alt={'image'} id={'inscription_img'}/>
