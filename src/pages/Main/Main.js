@@ -76,7 +76,10 @@ const Main = () => {
             setHover(true)
             setInfo('Coding-Опыт: 2 года')
           }}
-          onMouseLeave={() => setHover(false)}
+          onMouseLeave={() => {
+            setHover(false)
+            setInfo('')
+          }}
         >
           <h3>coding</h3>
         </Link>

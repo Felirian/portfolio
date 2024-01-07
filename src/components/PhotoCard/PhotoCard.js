@@ -13,28 +13,6 @@ const PhotoCard = ({image, imageInfo, width, height}) => {
   const [info, setInfo] = useContext(MagicCursorInfo)
   const [hover, setHover] = useContext(MagicCursorHover)
 
-  useLayoutEffect(() => {
-
-
-    gsap.registerPlugin(ScrollTrigger)
-    const body = document.getElementsByTagName("body")
-    const wrapper = document.getElementById('img_wrapper')
-    const image = document.getElementsByClassName('image')
-    const imageTrigger = {
-      trigger: body,
-      start: '0% 60%',
-      end: '90% 40%',
-      scrub: 3,
-      markers: 1
-    }
-    gsap.to('.img_wrapper', {
-      scrollTrigger: imageTrigger,
-      ease: "power1.inOut",
-      top: '-50%',
-    })
-  }, []);
-
-
   return (
     <div
       className={s.img_wrapper}
@@ -43,8 +21,15 @@ const PhotoCard = ({image, imageInfo, width, height}) => {
         width: `${width}vw`,
         height: `${height}vw`,
       }}
+      onMouseEnter={() => {
+        setHover(true)
+        setInfo('')
+      }}
+      // onMouseLeave={() => {
+      //   setHover(false)
+      //   setInfo('')
+      // }}
       onClick={() => {
-        setHover(!hover)
         setInfo(imageInfo)
       }}
       onMouseLeave={() => setHover(false)}
