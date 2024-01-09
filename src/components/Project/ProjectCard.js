@@ -1,25 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Canvas} from "@react-three/fiber";
 import {Model} from "../../assets/laptopModel/Laptop";
 
 const ProjectCard = () => {
+  const [hover, setHover] = useState(false)
   return (
-    <div>
+    <div onClick={()=> setHover(!hover)}>
       <Canvas
         style={{
-          width: '50vw',
-          height: '50vh',
-          //background: "white"
+          width: '32.58vw',
+          height: '26.13vw',
+          background: "white"
         }}
         camera={{
-          zoom: 2.5,
+          zoom: 2,
           filmOffset: 1,
           position: [0, 0, 0],
         }}
       >
         <ambientLight/>
         <directionalLight intensity={5} position={[-0.2, 0.5, 0.8]}/>
-        <Model/>
+        <Model hover={hover}/>
       </Canvas>
     </div>
   );

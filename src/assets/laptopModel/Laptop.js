@@ -1,16 +1,37 @@
-import React, { useRef } from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {PerspectiveCamera, useGLTF} from '@react-three/drei'
 import laptop from './laptop.glb'
-export function Model(props) {
+import {hover} from "@testing-library/user-event/dist/hover";
+import {useFrame} from "@react-three/fiber";
 
-  const { nodes, materials } = useGLTF(laptop)
+export function Model(props) {
+  const {nodes, materials} = useGLTF(laptop)
+  const screenMesh = useRef();
+  const [open, setOpen] = useState(0.0)
+
+
+  useFrame(() => {
+    if (props.hover === true && open >= -1) {
+      setOpen(open - 0.05)
+      //open += 0.1;
+    }
+    if (props.hover === false && open <= 0) {
+      setOpen(open + 0.05)
+    }
+    //screenMesh.current.rotation.x = open;
+  });
+
   return (
     <PerspectiveCamera
-      position={[0, -0.1, -0.85]}
-      rotation={[0.5, 0, 0]}
+      position={[0, -0, -0.65]}
+      rotation={[0, 0, 0]}
       FOV={50}
     >
-      <group {...props} dispose={null}>
+      <group
+        {...props}
+        dispose={null}
+        rotation={[0.1, 0, 0]}
+      >
         <mesh
           geometry={nodes.Plane.geometry}
           material={materials.Base}
@@ -32,7 +53,7 @@ export function Model(props) {
           position={[-0.067, 0.009, -0.001]}
           rotation={[0.023, 0, 0]}
         />
-        <group position={[0, 0.008, -0.122]} rotation={[1.4, 0, 0]}>
+        <group position={[0, 0.008, -0.122]} rotation={[open + 3.141, 0, 0]} ref={screenMesh}>
           <mesh
             geometry={nodes.Plane001.geometry}
             material={materials.Base}
