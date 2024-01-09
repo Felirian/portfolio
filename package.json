@@ -5,6 +5,7 @@
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
     "@gsap/react": "^2.0.2",
+    "@react-three/drei": "^9.93.0",
     "@react-three/fiber": "^8.15.13",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -13,6 +14,7 @@
     "aos": "^2.3.4",
     "classnames": "^2.3.2",
     "firebase": "^10.4.0",
+    "gltfjsx": "^6.2.16",
     "gsap": "^3.12.2",
     "gsap-trial": "^3.12.4",
     "react": "^18.2.0",
