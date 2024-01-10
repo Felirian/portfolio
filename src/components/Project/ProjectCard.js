@@ -6,9 +6,9 @@ const ProjectCard = () => {
   const [hover, setHover] = useState(false)
   return (
     <div
-      onClick={()=> setHover(!hover)}
-      //onMouseEnter={()=>setHover(true)}
-      //onMouseLeave={()=>setHover(false)}
+      //onClick={()=> setHover(!hover)}
+      onMouseEnter={()=>setHover(true)}
+      onMouseLeave={()=>setHover(false)}
     >
       <Canvas
         style={{
