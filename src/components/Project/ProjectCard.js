@@ -10,6 +10,7 @@ const ProjectCard = () => {
       onMouseEnter={()=>setHover(true)}
       onMouseLeave={()=>setHover(false)}
     >
+
       <Canvas
         style={{
           width: '32.58vw',
