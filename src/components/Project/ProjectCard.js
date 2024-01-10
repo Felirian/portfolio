@@ -5,12 +5,16 @@ import {Model} from "../../assets/laptopModel/Laptop";
 const ProjectCard = () => {
   const [hover, setHover] = useState(false)
   return (
-    <div onClick={()=> setHover(!hover)}>
+    <div
+      onClick={()=> setHover(!hover)}
+      //onMouseEnter={()=>setHover(true)}
+      //onMouseLeave={()=>setHover(false)}
+    >
       <Canvas
         style={{
           width: '32.58vw',
           height: '26.13vw',
-          background: "white"
+          //background: "white"
         }}
         camera={{
           zoom: 2,
