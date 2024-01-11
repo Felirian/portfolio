@@ -8,6 +8,7 @@ import MagicCursor from "./components/MagicCursor/MagicCursor";
 import {MagicCursorInfo, MagicCursorHover} from "./components/context";
 import PagePreloader from "./components/PageProloader/PagePreloader";
 import {useGSAP} from "@gsap/react";
+import CodePage from "./pages/Code";
 
 
 const PortraitPhotosRoute = lazy(() => import('./pages/PortraitPhotos/PortraitPhotos'));
@@ -27,7 +28,7 @@ function App() {
               <Route path={'/portrait'} element={
                 <Suspense fallback={<PagePreloader/>} children={<PortraitPhotosRoute/>}/>
               }/>
-              <Route path={'/test'} element={<TestPage/>}/>
+              <Route path={'/code'} element={<CodePage/>}/>
               <Route path="*" element={<Navigate to={'/'} replace/>}/>
             </Routes>
           </Suspense>

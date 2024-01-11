@@ -70,7 +70,7 @@ const Main = () => {
       </div>
       <div className={s.tabs} id={'tabs'}>
         <Link
-          to={'/test'}
+          to={'/code'}
           className={s.tab}
           onMouseEnter={() => {
             setHover(true)

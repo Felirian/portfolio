@@ -1,14 +1,16 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef} from 'react'
 import {PerspectiveCamera, useGLTF} from '@react-three/drei'
 import laptop from './laptop.glb'
-import {useFrame} from "@react-three/fiber";
 import TWEEN from 'tween.js';
-const easeInOutQuad = (t) => 2 * t * t ;
+import {useThree} from "@react-three/fiber";
+
 export function Model(props) {
   const {nodes, materials} = useGLTF(laptop)
   const screenMesh = useRef();
   const FullMesh = useRef();
-  const [open, setOpen] = useState(0)
+  const camera = useRef();
+
+
 
   useEffect(() => {
     const TopRotation = new TWEEN.Tween(screenMesh.current.rotation)
@@ -23,7 +25,6 @@ export function Model(props) {
       .to({ y: props.hover ? -0.1 : 0 }, 800)
       .easing(TWEEN.Easing.Quadratic.Out)
       .start();
-
     const animate = () => {
       requestAnimationFrame(animate);
       TWEEN.update();
@@ -38,16 +39,38 @@ export function Model(props) {
     }; // Остановить анимацию при размонтировании компонента
   }, [props.hover])
 
+
+
+  useEffect(() => {
+    console.log(props.viewport.top);
+    document.addEventListener('scroll', ()=> {
+
+    })
+
+
+    // // Рассчитываем угол поворота относительно экранных координат
+    // const rotationAngle = Math.atan2(
+    //   boundingBox.top + boundingBox.height / 2 - window.innerHeight / 2,
+    //   boundingBox.left + boundingBox.width / 2 - window.innerWidth / 2
+    // );
+    //
+    // // Применяем поворот
+    // FullMesh.current.rotation.z = rotationAngle;
+  }, []);
+
+
   return (
     <PerspectiveCamera
       position={[0, -0, -0.65]}
       rotation={[0, 0, 0]}
       FOV={50}
+      ref={camera}
     >
       <group
         {...props}
         dispose={null}
         ref={FullMesh}
+        //rotation={[0,0,0]}
       >
         <mesh
           geometry={nodes.Plane.geometry}
