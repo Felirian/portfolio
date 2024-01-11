@@ -9,7 +9,7 @@ const CodePage = () => {
       <Null/>
       {CODE_CASE.map((el, index)=>(
         <ProjectCard
-          index={index}
+          key={index}
           name={el.name}
           title={el.title}
           info={el.info}

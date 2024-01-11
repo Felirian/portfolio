@@ -39,12 +39,10 @@ export function Model(props) {
     }; // Остановить анимацию при размонтировании компонента
   }, [props.hover])
 
-
-
   useEffect(() => {
-    console.log(props.viewport.top);
-    document.addEventListener('scroll', ()=> {
 
+    document.addEventListener('scroll', ()=> {
+      //console.log(props.viewport.top);
     })
 
 

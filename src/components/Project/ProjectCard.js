@@ -18,7 +18,7 @@ const ProjectCard = ({name, title, info, stack, href, pos, img}) => {
   //console.log(getPos());
 
   useEffect(() => {
-    setViewportPos(el.current.getBoundingClientRect());
+    //setViewportPos(el.current.getBoundingClientRect());
 
     document.addEventListener('scroll', ()=> {
       setViewportPos(el.current.getBoundingClientRect());
@@ -36,7 +36,7 @@ const ProjectCard = ({name, title, info, stack, href, pos, img}) => {
         paddingRight: pos === 'left' ? '8.36vw' : '0',
         flexDirection: pos === 'left' ? 'row' : 'row-reverse'
       }}
-
+      ref={el}
     >
       <Canvas
         style={{
@@ -49,7 +49,7 @@ const ProjectCard = ({name, title, info, stack, href, pos, img}) => {
           filmOffset: 1,
           position: [0, 0, 0],
         }}
-        ref={el}
+
       >
         <ambientLight/>
         <directionalLight intensity={5} position={[-0.2, 0.5, 0.8]}/>
@@ -64,7 +64,7 @@ const ProjectCard = ({name, title, info, stack, href, pos, img}) => {
         <StackTags>
           <h4>Stack технологий: </h4>
           {stack.map((el, i)=>(
-            <h4 index={`tag_${i}`}>{el}</h4>
+            <h4 key={`tag_${i}`}>{el}</h4>
           ))}
         </StackTags>
       </Text>
