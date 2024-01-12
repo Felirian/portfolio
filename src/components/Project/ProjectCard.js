@@ -2,59 +2,27 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Canvas} from "@react-three/fiber";
 import {Model} from "../../assets/laptopModel/Laptop";
 import styled from "styled-components";
+
 const ProjectCard = ({name, title, info, stack, href, pos, img}) => {
   const [hover, setHover] = useState(false)
-  const el = useRef();
-  const [viewportPos, setViewportPos] = useState(0)
-
-  // const getPos = () => {
-  //   if (el.current) {
-  //     setViewportPos(el.current.getBoundingClientRect())
-  //     return (viewportPos.top - 170) / 100
-  //   } else {
-  //     return 0
-  //   }
-  // }
-  //console.log(getPos());
-
-  useEffect(() => {
-    //setViewportPos(el.current.getBoundingClientRect());
-
-    document.addEventListener('scroll', ()=> {
-      setViewportPos(el.current.getBoundingClientRect());
-      //console.log();
-    })
-  }, []);
+  const ProjectCardRef = useRef();
 
   return (
     <CardWrapper
-      //onClick={()=> setHover(!hover)}
-      onMouseEnter={()=>setHover(true)}
-      onMouseLeave={()=>setHover(false)}
+      //onClick={()=> console.log(viewportPos)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       style={{
         paddingLeft: pos === 'right' ? '8.36vw' : '0',
         paddingRight: pos === 'left' ? '8.36vw' : '0',
         flexDirection: pos === 'left' ? 'row' : 'row-reverse'
       }}
-      ref={el}
+      ref={ProjectCardRef}
     >
-      <Canvas
-        style={{
-          width: '32.58vw',
-          height: '26.13vw',
-          //background: "white"
-        }}
-        camera={{
-          zoom: 1.5,
-          filmOffset: 1,
-          position: [0, 0, 0],
-        }}
-
-      >
-        <ambientLight/>
-        <directionalLight intensity={5} position={[-0.2, 0.5, 0.8]}/>
-        <Model hover={hover} pos={pos} viewport={viewportPos}/>
-      </Canvas>
+      <Model
+        hover={hover}
+        pos={pos}
+      />
       <Text>
         <MainText>
           <h1>{name}</h1>
@@ -63,7 +31,7 @@ const ProjectCard = ({name, title, info, stack, href, pos, img}) => {
         <p>{info}</p>
         <StackTags>
           <h4>Stack технологий: </h4>
-          {stack.map((el, i)=>(
+          {stack.map((el, i) => (
             <h4 key={`tag_${i}`}>{el}</h4>
           ))}
         </StackTags>
@@ -72,25 +40,25 @@ const ProjectCard = ({name, title, info, stack, href, pos, img}) => {
   );
 };
 
-const CardWrapper = styled.div ` 
+const CardWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 9.10vw;
 `
-const Text = styled.div `
+const Text = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
     max-width: 32.58vw;
 `
-const MainText = styled.div `
+const MainText = styled.div`
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
 `
-const StackTags = styled.div `
+const StackTags = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
