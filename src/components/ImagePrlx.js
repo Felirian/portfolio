@@ -31,7 +31,7 @@ const ImagePrlx = ({img, height}) => {
 };
 
 const ImgWrapper = styled.div`
-  width: 100%;
+  width: auto;
   height: ${props => props.isHeight};
   overflow: hidden;
 `

@@ -67,8 +67,15 @@ export const H1 = styled.h1`
   font-weight: 300;
   line-height: 2.11vw; /* 112.5% */
 `
+export const H2 = styled.h2`
+  font-family: Jost, sans-serif;
+  font-size: 1.64vw;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 48px; /* 114.286% */
+`
 
-export const H3 = styled.h1`
+export const H3 = styled.h3`
   font-family: Jost, sans-serif;
   font-size: 1.17vw;
   font-style: normal;
