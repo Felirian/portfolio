@@ -16,8 +16,9 @@ function App() {
     <MagicCursorInfo.Provider value={[info, setInfo]}>
       <MagicCursorHover.Provider value={[hover, setHover]}>
         <GlobalStyle/>
-        <BrowserRouter>
+
           <Routes>
+            <Route path={'/*'} element={<Main/>}/>
             {ROUTERS.map((el, index) => (
               <Route path={el.path} key={`path_${index}`} element={
                 <CSSTransition
@@ -31,7 +32,7 @@ function App() {
 
             <Route path="*" element={<Navigate to={'/'} replace/>}/>
           </Routes>
-        </BrowserRouter>
+
         <Header/>
         <MagicCursor/>
 
