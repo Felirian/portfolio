@@ -1,40 +1,40 @@
-import React, {lazy, Suspense, useState} from "react";
-import "./styles/styles.scss"
+import React, {useState} from "react";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import Main from "./pages/Main/Main";
-import TestPage from "./pages/TestPage";
-import ConceptualPhotos from "./pages/ConceptualPhotos/ConceptualPhotos";
 import MagicCursor from "./components/MagicCursor/MagicCursor";
-import {MagicCursorInfo, MagicCursorHover} from "./components/context";
-import PagePreloader from "./components/PageProloader/PagePreloader";
-import {useGSAP} from "@gsap/react";
-import CodePage from "./pages/Code";
-
-
-const PortraitPhotosRoute = lazy(() => import('./pages/PortraitPhotos/PortraitPhotos'));
+import {MagicCursorInfo, MagicCursorHover} from "./shared/context";
+import Main from "./pages/Main";
+import {GlobalStyle} from "./styles/GlobalStyles";
+import {ROUTERS} from "./shared/routers";
+import {CSSTransition} from "react-transition-group";
+import Header from "./components/Header";
 
 function App() {
   const [info, setInfo] = useState('')
   const [hover, setHover] = useState(false)
+
   return (
     <MagicCursorInfo.Provider value={[info, setInfo]}>
       <MagicCursorHover.Provider value={[hover, setHover]}>
+        <GlobalStyle/>
         <BrowserRouter>
-          <p className={'water_snack'}>@FELIRIAN</p>
-          <Suspense fallback={<PagePreloader/>} >
-            <Routes>
-              <Route path={'/*'} element={<Main/>}/>
-              <Route path={'/conceptual'} element={<ConceptualPhotos/>}/>
-              <Route path={'/portrait'} element={
-                <Suspense fallback={<PagePreloader/>} children={<PortraitPhotosRoute/>}/>
-              }/>
-              <Route path={'/code'} element={<CodePage/>}/>
-              <Route path="*" element={<Navigate to={'/'} replace/>}/>
-            </Routes>
-          </Suspense>
+          <Routes>
+            {ROUTERS.map((el, index) => (
+              <Route path={el.path} key={`path_${index}`} element={
+                <CSSTransition
+                  timeout={1000}
+                >
+                  {el.Component}
+                </CSSTransition>
+              } />
+            ))}
+            <Route path={'/*'} element={<Main/>}/>
 
-          <MagicCursor/>
+            <Route path="*" element={<Navigate to={'/'} replace/>}/>
+          </Routes>
         </BrowserRouter>
+        <Header/>
+        <MagicCursor/>
+
       </MagicCursorHover.Provider>
     </MagicCursorInfo.Provider>
   );

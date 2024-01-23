@@ -1,6 +1,6 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect,} from 'react';
 import s from './MagicCursor.module.scss'
-import {MagicCursorHover, MagicCursorInfo} from "../context";
+import {MagicCursorHover, MagicCursorInfo} from "../../shared/context";
 import cn from 'classnames'
 
 const MagicCursor = () => {
