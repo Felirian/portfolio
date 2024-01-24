@@ -7,6 +7,7 @@ import {GlobalStyle} from "./styles/GlobalStyles";
 import {ROUTERS} from "./shared/routers";
 import {CSSTransition} from "react-transition-group";
 import Header from "./components/Header";
+import PhotoPage from "./pages/PhotoPage";
 
 function App() {
   const [info, setInfo] = useState('')
@@ -18,7 +19,7 @@ function App() {
         <GlobalStyle/>
 
           <Routes>
-            <Route path={'/*'} element={<Main/>}/>
+            <Route path={'/*'} element={<PhotoPage/>}/>
             {ROUTERS.map((el, index) => (
               <Route path={el.path} key={`path_${index}`} element={
                 <CSSTransition
