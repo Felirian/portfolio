@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import SvgSelector from "./SvgSelector/SvgSelector";
 import {ROUTERS} from "../shared/routers";
 import {H3, HoverLink} from "../styles/GlobalStyles";
@@ -16,7 +16,7 @@ const Header = () => {
 
       <Links>
         {ROUTERS.map((el, i)=>(
-          <Link
+          <NavLink
             to={el.path}
             key={`header_link${i}`}
             onClick={()=>setOpen(!open)}
@@ -31,7 +31,7 @@ const Header = () => {
             <HoverLink>
               <H3>{el.name}</H3>
             </HoverLink>
-          </Link>
+          </NavLink>
         ))}
       </Links>
 

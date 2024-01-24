@@ -44,7 +44,7 @@ const PHOTO_PRICE = [
 
 const PriceList = () => {
   return (
-    <PriceListWrapper>
+    <PriceListWrapper id={'first'}>
       {PHOTO_PRICE.map((el,i)=> (
         <PriceBlock
           key={`price_${i}`}

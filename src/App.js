@@ -29,7 +29,6 @@ function App() {
                 </CSSTransition>
               } />
             ))}
-            <Route path={'/*'} element={<Main/>}/>
 
             <Route path="*" element={<Navigate to={'/'} replace/>}/>
           </Routes>
