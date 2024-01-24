@@ -14,8 +14,6 @@ import {H1, H3} from "../styles/GlobalStyles";
 const PhotoPage = () => {
   return (
     <PhotoPageWrapper>
-
-      <h1>photo</h1>
       <Block>
         <ImagePrlx
           img={img11}
@@ -59,10 +57,6 @@ const PhotoPage = () => {
   );
 };
 
-const Null = styled.div`
-  width: 100vw;
-  height: 100vh;
-`
 
 const PhotoPageWrapper = styled.div`
   display: flex;

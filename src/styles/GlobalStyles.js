@@ -48,6 +48,11 @@ export const HoverLink = styled.div`
   }
 
 `
+
+export const Null = styled.div`
+  width: 100vw;
+  height: 100vh;
+`
 export const ExtraTitle = styled.h1`
   color: ${COLORS.color_5};
   -webkit-text-stroke-width: 1px;
@@ -58,6 +63,29 @@ export const ExtraTitle = styled.h1`
   font-style: normal;
   font-weight: 800;
   line-height: 95%; /* 408.5px */
+`
+
+export const TitleBold = styled.h1`
+  color: ${COLORS.color_5};
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: ${COLORS.color_1};
+
+  font-family: Jost, sans-serif;  
+  font-size: 3.28vw;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 95%; /* 79.8px */
+`
+
+export const Title = styled.h1`
+  color: ${COLORS.color_5};
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: ${COLORS.color_2};
+  font-family: Jost, sans-serif;
+  font-size: 2.66vw;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 2.03vw; /* 76.471% */
 `
 
 export const H1 = styled.h1`
