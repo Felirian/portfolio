@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import MagicCursor from "./components/MagicCursor/MagicCursor";
 import {MagicCursorInfo, MagicCursorHover} from "./shared/context";
-import Main from "./pages/Main";
 import {GlobalStyle} from "./styles/GlobalStyles";
 import {ROUTERS} from "./shared/routers";
 import {CSSTransition} from "react-transition-group";

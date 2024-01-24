@@ -29,11 +29,14 @@ import img52 from '../assets/Photos/5.2.jpg'
 import img53 from '../assets/Photos/5.3.jpg'
 
 import Sticky from "../components/Sticky";
-import {H1, H3} from "../styles/GlobalStyles";
+import {H1, H3, Null} from "../styles/GlobalStyles";
+import Main from "./Main";
 
 const PhotoPage = () => {
   return (
     <PhotoPageWrapper>
+      <Main/>
+      <Null/>
       <Block>
         <ImagePrlx
           img={img11}
