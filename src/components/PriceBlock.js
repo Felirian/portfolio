@@ -30,7 +30,7 @@ const PriceBlock = ({num, name, price, tags, img}) => {
     const tm = gsap.timeline({
       scrollTrigger: {
         trigger: BlockRef.current,
-        markers: true,
+        markers: false,
         start: "top center",
         end: "bottom bottom",
         scrub: 1,
