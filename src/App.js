@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {Suspense, useState} from "react";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Main from "./pages/Main";
 import MagicCursor from "./features/MagicCursor";
@@ -6,7 +6,9 @@ import {MagicCursorInfo, MagicCursorHover} from "./app/context";
 import {GlobalStyle} from "./app/styles";
 import {CODE_PROJECTS_DATA} from "./entities/CODE_PROJECTS";
 import CodeID from "./pages/Code[ID]";
-import CodeProjectWrapper from "./features/CodeProjectWrapper";
+import {CSSTransition} from "react-transition-group";
+import CodeProjectPreload from "./features/CodeProjectPreload";
+import styled from "styled-components";
 
 function App() {
   const [info, setInfo] = useState()
@@ -28,11 +30,14 @@ function App() {
             <Route path={'projects'}>
               <Route path={'code'}>
                 <Route index element={<h1>codes</h1>}/>
-                {CODE_PROJECTS_DATA.map((route, i)=> (
-                  <Route key={i} path={route.slug} element={
-                    // <CodeID />
-                    <CodeProjectWrapper currentProject={i} />
-                  }/>
+
+                {/*<Route path={':projectId'} element={<CodeID/>}/>*/}
+                {CODE_PROJECTS_DATA.map((project, i)=> (
+
+                    <Route key={i} path={project.slug} element={
+                      <CodeID currentProject={i}/>
+                    }/>
+
                 ))}
               </Route>
               <Route path={'photo'} element={

@@ -1,10 +1,13 @@
-import kakVseImg from '../assets/CodeProjects/Kak-vse.jpg'
-import PushKeenImg from '../assets/CodeProjects/PushKeen.jpg'
+import KakVseImg from '../assets/CodeProjects/Kak-vse.jpg';
+import PushKeenImg from '../assets/CodeProjects/PushKeen.jpg';
+import LaboratoryPushKeenImg from '../assets/CodeProjects/Laboratory-PushKeen.jpg';
+import RzdPushKeenImg from '../assets/CodeProjects/Rzd-PushKeen.jpg';
+import EKBImg from '../assets/CodeProjects/EKB.jpg'
 
 export const CODE_PROJECTS_DATA = [
   {
     name: 'Как все',
-    mainImg: kakVseImg,
+    mainImg: KakVseImg,
     title: 'Сайт посвящённый, трудоустройству и социализации людей с инвалидностью в России',
     info: `Многостраничный сайт с админ панелью, по готовому дизайн проекту`,
     stack: ['next.js', 'GRAPHql', 'strapi', 'scss', 'VERCEL'],
@@ -24,7 +27,7 @@ export const CODE_PROJECTS_DATA = [
   },
   {
     name: 'Лаборатория ПАБЛИК-АРТА',
-    mainImg: kakVseImg,
+    mainImg: LaboratoryPushKeenImg,
     title: 'Страница посвящённая проекту Паблика-Арта, созданного для погружения жителей Мурино в уличное искусство',
     info: `Лэндинг по готовому дизайн-проекту`,
     stack: ['React', 'scss', 'Nginx'],
@@ -34,7 +37,7 @@ export const CODE_PROJECTS_DATA = [
   },
   {
     name: 'РЖД & PushKeen',
-    mainImg: kakVseImg,
+    mainImg: RzdPushKeenImg,
     title: 'Сайт где собраны все проекты компании PushKeen для РЖД',
     info: `Лэндинг по готовому дизайн-проекту`,
     stack: ['React', 'scss', 'Nginx'],
@@ -44,7 +47,7 @@ export const CODE_PROJECTS_DATA = [
   },
   {
     name: 'ЕКАТЕРИНБУРГСКИЙ ТРАНСПОРТ',
-    mainImg: kakVseImg,
+    mainImg: EKBImg,
     title: 'Сайт презентующий стайлгайд айдентики Екатеринбургского общественного транспорта',
     info: `Многостраничный сайт, с динамически появляющимися элементами.`,
     stack: ['React', 'scss', 'Nginx'],
