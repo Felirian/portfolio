@@ -32,30 +32,29 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
-
+  
   //------SCROLL-BAR-------\\
   ::-webkit-scrollbar {
-    width: $scrollbar-width;
-    background-color: $color-bg-1;
+    width: 5px;
+    background-color: ${COLORS.color_4};
   }
 
   ::-webkit-scrollbar-track {
-    -webkit-box-shadow: $color-bg-1;
+    -webkit-box-shadow: ${COLORS.color_4};
   }
 
   ::-webkit-scrollbar-thumb {
-    background: $color-bg-3;
+    background: ${COLORS.color_1};
 
     border-radius: 5px;
-    border: 2px solid #141414;
+    border: 2px solid ${COLORS.color_4};
     transition: 0.5s;
-
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #565656;
+    background: ${COLORS.color_1};
     border-radius: 5px;
-    border: 0px solid red;
+    border: 0 solid red;
     transition: 0.5s;
   }
 
@@ -71,4 +70,9 @@ export const HoverLink = styled.div`
     background-size: 100% 1.5px;
   }
 
+`
+
+export const Null = styled.div`
+  width: 100vw;
+  height: 100vh;
 `
