@@ -2,20 +2,16 @@ import React from 'react';
 import styled from "styled-components";
 import {Block} from "../app/styles";
 import WhyMe from "../widgets/main/WhyMe";
+import MainTitle from "../widgets/main/MainTitle";
 
 const Main = () => {
 
   return (
     <MainWr>
-      <h1>Main</h1>
-      <Block>
-
-      </Block>
+      <MainTitle/>
       <WhyMe/>
-      <Block>
 
-      </Block>
-
+      <Block/>
     </MainWr>
   );
 };

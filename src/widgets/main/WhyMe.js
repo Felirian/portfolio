@@ -1,14 +1,12 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import styled from "styled-components";
 import gsap from 'gsap';
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
+import {H1, H2, T1, Title} from "../../app/TextTags";
 
 const WhyMe = () => {
   gsap.registerPlugin(ScrollTrigger)
-  const tl = gsap.timeline({
-
-  })
   const fromLeft = useRef([]);
 
   useGSAP(() => {
@@ -53,19 +51,19 @@ const WhyMe = () => {
   return (
     <WhyMeWr>
       <Skills algin={'end'}>
-        <h2 className={'fromLeft'} ref={(el) => (fromLeft.current[0] = el)}>Hard skills</h2>
-        <p ref={(el) => (fromLeft.current[1] = el)}>JavaScript</p>
-        <p ref={(el) => (fromLeft.current[2] = el)}>C#</p>
-        <p ref={(el) => (fromLeft.current[3] = el)}>Database</p>
+        <H1 className={'fromLeft'} ref={(el) => (fromLeft.current[0] = el)}>Hard skills</H1>
+        <T1 ref={(el) => (fromLeft.current[1] = el)}>JavaScript</T1>
+        <T1 ref={(el) => (fromLeft.current[2] = el)}>C#</T1>
+        <T1 ref={(el) => (fromLeft.current[3] = el)}>Database</T1>
       </Skills>
       <StickyWr>
-        <h1>Why me?</h1>
+        <Title>Why me?</Title>
       </StickyWr>
       <Skills algin={'start'}>
-        <h2 ref={(el) => (fromLeft.current[4] = el)}>Soft skill</h2>
-        <p ref={(el) => (fromLeft.current[5] = el)}>Time management</p>
-        <p ref={(el) => (fromLeft.current[6] = el)}>Continuous improvement</p>
-        <p ref={(el) => (fromLeft.current[7] = el)}>Problem solving</p>
+        <H1 ref={(el) => (fromLeft.current[4] = el)}>Soft skill</H1>
+        <T1 ref={(el) => (fromLeft.current[5] = el)}>Time management</T1>
+        <T1 ref={(el) => (fromLeft.current[6] = el)}>Continuous improvement</T1>
+        <T1 ref={(el) => (fromLeft.current[7] = el)}>Problem solving</T1>
       </Skills>
     </WhyMeWr>
   );

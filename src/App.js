@@ -7,6 +7,7 @@ import {GlobalStyle} from "./app/styles";
 import {CODE_PROJECTS_DATA} from "./entities/CODE_PROJECTS";
 import CodeID from "./pages/Code[ID]";
 import BackGround from "./features/BackGround";
+import Header from "./widgets/Header";
 
 function App() {
 
@@ -53,8 +54,12 @@ function App() {
               </Routes>
             </Suspense>
 
+            <Header/>
             <MagicCursor/>
+
           </BrowserRouter>
+
+
 
         </BackGroundImageContext.Provider>
 

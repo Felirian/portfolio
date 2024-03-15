@@ -1,9 +1,16 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
-import SvgSelector from "./SvgSelector/SvgSelector";
-import {ROUTERS} from "../shared/routers";
-import {H3, HoverLink} from "../styles/GlobalStyles";
+import SvgSelector from "../shared/SvgSelector";
+import {H3} from "../app/TextTags";
+import {HoverLink} from "../app/styles";
+
+const ROUTERS = [
+  // {path: '/code', Component: <Main/>, name: 'Code'},
+  {path: '/photo', name: 'Photo'},
+  {path: '/price-list', name: 'Price list'},
+  // {path: '/contact', Component: <Contact/>, name: 'Contact'},
+]
 
 const Header = () => {
   const [open, setOpen] = useState(false)
@@ -46,6 +53,7 @@ const HeaderWrapper = styled.header`
   top: 0;
   right: 0;
   transition: 0.5s ease;
+  z-index: 99;
 `
 
 const Links = styled.div`
