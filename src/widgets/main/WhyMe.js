@@ -3,7 +3,7 @@ import styled from "styled-components";
 import gsap from 'gsap';
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
-import {H1, H2, T1, Title} from "../../app/TextTags";
+import {H1, T1, Title} from "../../app/TextTags";
 
 const WhyMe = () => {
   gsap.registerPlugin(ScrollTrigger)

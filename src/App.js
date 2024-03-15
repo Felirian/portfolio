@@ -8,6 +8,7 @@ import {CODE_PROJECTS_DATA} from "./entities/CODE_PROJECTS";
 import CodeID from "./pages/Code[ID]";
 import BackGround from "./features/BackGround";
 import Header from "./widgets/Header";
+import CodeProjects from "./pages/CodeProjects";
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
 
                 <Route path={'projects'}>
                   <Route path={'code'}>
-                    <Route index element={<h1>codes</h1>}/>
+                    <Route index element={<CodeProjects/>}/>
 
                     {CODE_PROJECTS_DATA.map((project, i) => (
 
