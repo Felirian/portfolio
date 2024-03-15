@@ -71,9 +71,9 @@ const Burger = styled.div`
   position: absolute;
   z-index: 100;
   rect {transition: 0.5s;}
-  svg:hover #first {x: 6}
+  svg:hover #first {x:${(props) => (props.isOpen ? -5 : 6)}}
   svg:hover #second {x: 2}
-  svg:hover #third {x: 6}
+  svg:hover #third {x:${(props) => (props.isOpen ? -5 : 6)}}
   
   #first {
     transform: 
