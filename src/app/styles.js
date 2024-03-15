@@ -60,6 +60,7 @@ export const GlobalStyle = createGlobalStyle`
 
 `
 export const HoverLink = styled.div`
+  width: fit-content;
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0% 100%;
   background-repeat: no-repeat;

@@ -2,15 +2,11 @@ import {COLORS} from "../shared/variables";
 import styled from "styled-components";
 
 export const ExtraTitle = styled.h1`
-  color: ${COLORS.color_5};
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: ${COLORS.color_1};
-
-  font-family: Jost, sans-serif;
-  font-size: 430px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 95%; /* 408.5px */
+  //color: ${COLORS.color_5};
+  font-size: 3.28vw;
+  font-family: Jost, sans-serif; 
+  font-weight: 800; 
+  line-height: 4.09vw;
 `
 
 export const Title = styled.h1`

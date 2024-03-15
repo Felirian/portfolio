@@ -53,6 +53,7 @@ const HeaderWrapper = styled.header`
   right: 0;
   transition: 0.5s ease;
   z-index: 99;
+  mix-blend-mode: difference;
 `
 
 const Links = styled.div`
@@ -61,7 +62,7 @@ const Links = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 3.13vw;
-  gap: 2.08vw;
+  gap: 2.08vw;   
 `
 
 const Burger = styled.div`
@@ -72,7 +73,7 @@ const Burger = styled.div`
   svg:hover #first {x: 6}
   svg:hover #second {x: 2}
   svg:hover #third {x: 6}
-
+  
   #first {
     transform: 
       rotate(${(props) => (props.isOpen ? '45deg' : '0deg')}) 
