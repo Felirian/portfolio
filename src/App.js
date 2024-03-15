@@ -59,10 +59,7 @@ function App() {
 
           </BrowserRouter>
 
-
-
         </BackGroundImageContext.Provider>
-
       </MagicCursorHover.Provider>
     </MagicCursorInfo.Provider>
   );
