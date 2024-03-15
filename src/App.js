@@ -9,6 +9,7 @@ import CodeID from "./pages/Code[ID]";
 import BackGround from "./features/BackGround";
 import Header from "./widgets/Header";
 import CodeProjects from "./pages/CodeProjects";
+import PhotoPage from "./pages/PhotoPage";
 
 function App() {
 
@@ -45,9 +46,7 @@ function App() {
 
                     ))}
                   </Route>
-                  <Route path={'photo'} element={
-                    <h1>photo</h1>
-                  }/>
+                  <Route path={'photo'} element={<PhotoPage/>}/>
                 </Route>
 
 
