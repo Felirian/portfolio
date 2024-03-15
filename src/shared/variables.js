@@ -5,3 +5,6 @@ export const COLORS = {
   color_4: '#262626',
   color_5: '#0D0D0D',
 }
+
+
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import ImagePrlx from "../shared/ImagePrlx";
+import ImagePrlx from "../components/ImagePrlx";
 
 import img11 from '../assets/Photos/1.1.jpg'
 import img12 from '../assets/Photos/1.2.jpg'
@@ -28,14 +28,15 @@ import img51 from '../assets/Photos/5.1.jpg'
 import img52 from '../assets/Photos/5.2.jpg'
 import img53 from '../assets/Photos/5.3.jpg'
 
-import Sticky from "../shared/Sticky";
-import {H1, H3} from "../app/TextTags";
+import Sticky from "../components/Sticky";
+import {H1, H3, Null} from "../styles/GlobalStyles";
+import Main from "./Main";
 
 const PhotoPage = () => {
   return (
     <PhotoPageWrapper>
-
-
+      <Main/>
+      <Null/>
       <Block>
         <ImagePrlx
           img={img11}
@@ -117,40 +118,40 @@ const PhotoPage = () => {
 
       </Block>
 
-      {/*<Block>*/}
-      {/*  <ImagePrlx*/}
-      {/*    img={img31}*/}
-      {/*    height={66.17}*/}
-      {/*  />*/}
-      {/*  <Sticky*/}
-      {/*    pos={'left'}*/}
-      {/*    img={img32}*/}
-      {/*    text={<H1>Для эмоций*/}
-      {/*      не нужны цвета</H1>}*/}
-      {/*    height={63.28}*/}
-      {/*  />*/}
-      {/*  <Sticky*/}
-      {/*    pos={'tight'}*/}
-      {/*    img={img33}*/}
-      {/*    text={*/}
-      {/*      <H3>*/}
-      {/*        В черно-белых портретах, пронизанных контрастами и насыщенностью эмоций,*/}
-      {/*        я стремлюсь запечатлеть моменты и чувства.*/}
-      {/*        <br/><br/>*/}
-      {/*        Окруженные тенями и светом,*/}
-      {/*        лица моделей выражают сложные нюансы человеческой природы.*/}
-      {/*        <br/><br/>*/}
-      {/*        Эта серия — это погружение в глубокие эмоциональные оттенки черно-белой палитры.*/}
-      {/*      </H3>*/}
-      {/*    }*/}
-      {/*    height={63.28}*/}
-      {/*  />*/}
-      {/*</Block>*/}
+      <Block>
+        <ImagePrlx
+          img={img31}
+          height={66.17}
+        />
+        <Sticky
+          pos={'left'}
+          img={img32}
+          text={<H1>Для эмоций
+            не нужны цвета</H1>}
+          height={63.28}
+        />
+        <Sticky
+          pos={'tight'}
+          img={img33}
+          text={
+            <H3>
+              В черно-белых портретах, пронизанных контрастами и насыщенностью эмоций,
+              я стремлюсь запечатлеть моменты и чувства.
+              <br/><br/>
+              Окруженные тенями и светом,
+              лица моделей выражают сложные нюансы человеческой природы.
+              <br/><br/>
+              Эта серия — это погружение в глубокие эмоциональные оттенки черно-белой палитры.
+            </H3>
+          }
+          height={63.28}
+        />
+      </Block>
 
       <Block>
         <ImagePrlx
-          img={img41}
-          height={66.13}
+        img={img41}
+        height={66.13}
         />
         <Sticky
           pos={'right'}

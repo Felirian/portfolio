@@ -1,67 +1,39 @@
-import React, {Suspense, useState} from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Main from "./pages/Main";
-import MagicCursor from "./features/MagicCursor";
-import {MagicCursorInfo, MagicCursorHover, BackGroundImageContext} from "./app/context";
-import {GlobalStyle} from "./app/styles";
-import {CODE_PROJECTS_DATA} from "./entities/CODE_PROJECTS";
-import CodeID from "./pages/Code[ID]";
-import BackGround from "./features/BackGround";
-import Header from "./widgets/Header";
-import CodeProjects from "./pages/CodeProjects";
+import React, {useState} from "react";
+import {Navigate, Route, Routes} from "react-router-dom";
+import MagicCursor from "./components/MagicCursor/MagicCursor";
+import {MagicCursorInfo, MagicCursorHover} from "./shared/context";
+import {GlobalStyle} from "./styles/GlobalStyles";
+import {ROUTERS} from "./shared/routers";
+import {CSSTransition} from "react-transition-group";
+import Header from "./components/Header";
 import PhotoPage from "./pages/PhotoPage";
 
 function App() {
-
-
-
   const [info, setInfo] = useState('')
-  const [status, setStatus] = useState({
-    hover: false,
-    adhesion: false,
-  })
-  const [bgImage, setBgImage] = useState(null)
+  const [hover, setHover] = useState(false)
 
   return (
     <MagicCursorInfo.Provider value={[info, setInfo]}>
-      <MagicCursorHover.Provider value={[status, setStatus]}>
-        <BackGroundImageContext.Provider value={[bgImage, setBgImage]}>
+      <MagicCursorHover.Provider value={[hover, setHover]}>
+        <GlobalStyle/>
 
-          <GlobalStyle/>
-          <BrowserRouter>
-            <Suspense fallback={BackGround}>
-              <Routes>
-                <Route path={'/'} element={<Main/>}/>
+          <Routes>
+            <Route path={'/*'} element={<PhotoPage/>}/>
+            {ROUTERS.map((el, index) => (
+              <Route path={el.path} key={`path_${index}`} element={
+                <CSSTransition
+                  timeout={1000}
+                >
+                  {el.Component}
+                </CSSTransition>
+              } />
+            ))}
 
+            <Route path="*" element={<Navigate to={'/'} replace/>}/>
+          </Routes>
 
-                <Route path={'projects'}>
-                  <Route path={'code'}>
-                    <Route index element={<CodeProjects/>}/>
-
-                    {CODE_PROJECTS_DATA.map((project, i) => (
-
-                      <Route key={i} path={project.slug} element={
-                        <CodeID currentProject={i}/>
-                      }/>
-
-                    ))}
-                  </Route>
-                  <Route path={'photo'} element={<PhotoPage/>}/>
-                </Route>
-
-
-                {/*<Route path="*" element={<Navigate to={'/'} replace/>}/>*/}
-              </Routes>
-            </Suspense>
-
-            <Header/>
-            <MagicCursor/>
-
-          </BrowserRouter>
-
-
-
-        </BackGroundImageContext.Provider>
+        <Header/>
+        <MagicCursor/>
 
       </MagicCursorHover.Provider>
     </MagicCursorInfo.Provider>
