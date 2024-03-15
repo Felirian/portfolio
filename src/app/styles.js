@@ -71,7 +71,14 @@ export const HoverLink = styled.div`
   }
 
 `
-
+export const Block = styled.div`
+  width: 100%;
+  height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 export const Null = styled.div`
   width: 100vw;
   height: 100vh;

@@ -1,5 +1,5 @@
 import React, {Suspense, useState} from "react";
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from "./pages/Main";
 import MagicCursor from "./features/MagicCursor";
 import {MagicCursorInfo, MagicCursorHover, BackGroundImageContext} from "./app/context";
@@ -9,6 +9,9 @@ import CodeID from "./pages/Code[ID]";
 import BackGround from "./features/BackGround";
 
 function App() {
+
+
+
   const [info, setInfo] = useState('')
   const [status, setStatus] = useState({
     hover: false,
@@ -32,7 +35,6 @@ function App() {
                   <Route path={'code'}>
                     <Route index element={<h1>codes</h1>}/>
 
-                    {/*<Route path={':projectId'} element={<CodeID/>}/>*/}
                     {CODE_PROJECTS_DATA.map((project, i) => (
 
                       <Route key={i} path={project.slug} element={

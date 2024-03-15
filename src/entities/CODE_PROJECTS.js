@@ -16,6 +16,16 @@ export const CODE_PROJECTS_DATA = [
     component: ''
   },
   {
+    name: 'Rare Beasts ',
+    mainImg: KakVseImg,
+    title: 'Сайт посвящён животным занесенным в красную книгу.  На сайте можно узнать информацию о разных видах, почитать новости, а так же перейти на сайты фонов, которые предоставляют помощь.',
+    info: `Карточки о животных выполнены в виде презентации. Блочная система страницы, где каждый блок плавно меняется при скролле.`,
+    stack: ['next.js', 'GRAPHql', 'strapi', 'scss', 'VERCEL'],
+    slug: 'Rare-Beasts',
+    realization: '~40 д',
+    component: ''
+  },
+  {
     name: 'PushKeen',
     mainImg: PushKeenImg,
     title: 'Сайт компании PushKeen, где собраны все проекты и направления работы',
