@@ -6,6 +6,7 @@ import {H3} from "../app/TextTags";
 import {HoverLink} from "../app/styles";
 
 const ROUTERS = [
+  {path: '/', name: "Main"},
   {path: '/projects/code', name: "Code's projects"},
   {path: '/photo', name: 'Photo'},
   // {path: '/price-list', name: 'Price list'},
