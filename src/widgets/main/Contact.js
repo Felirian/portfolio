@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Contact = () => {
   return (
     <ContactWr>
-
+      аппр
     </ContactWr>
   );
 };
