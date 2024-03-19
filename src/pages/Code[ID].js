@@ -15,7 +15,6 @@ const CodeId = ({currentProject}) => {
 
 
   useEffect(() => {
-
     const checkScroll = () => {
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         document.location.href = `/projects/code/${CODE_PROJECTS_DATA[nextProject].slug}`

@@ -6,6 +6,7 @@ import {H3} from "../app/TextTags";
 const CodeProjects = () => {
   return (
     <div>
+      in process
       {CODE_PROJECTS_DATA.map((project, index) => (
         <NavLink to={`/projects/code/${project.slug}`} key={`project_${index}`}>
           <H3>{project.name}</H3>
