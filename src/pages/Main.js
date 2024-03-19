@@ -4,6 +4,7 @@ import {Block} from "../app/styles";
 import WhyMe from "../widgets/main/WhyMe";
 import MainTitle from "../widgets/main/MainTitle";
 import WhatCanIDo from "../widgets/main/WhatCanIDo";
+import Contact from "../widgets/main/Contact";
 
 const Main = () => {
 
@@ -13,6 +14,7 @@ const Main = () => {
       <WhyMe/>
       <Block/>
       <WhatCanIDo/>
+      <Contact/>
     </MainWr>
   );
 };

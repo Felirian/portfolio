@@ -38,7 +38,7 @@ const WhatCanIDoWr = styled.div`
   position: relative;
   padding: 0 5vw;
   width: 100%;
-  height: 200vh;
+  
   top: 0;
 
   //background-color: #2c2c2c;

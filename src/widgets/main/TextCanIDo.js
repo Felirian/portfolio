@@ -18,7 +18,7 @@ const TextCanIDo = ({row1, row2, row3, row4}) => {
     const triggerWr = gsap.timeline({
       scrollTrigger: {
         trigger: RowWrapper.current,
-        markers: true,
+        //markers: true,
         start: 'center 90%',
         end: 'center 50%',
         ease: "power1.inOut",
@@ -28,16 +28,16 @@ const TextCanIDo = ({row1, row2, row3, row4}) => {
     })
     triggerWr
       .from(ref1.current, {
-        backgroundSize: '100% 0%'
+        opacity: 0
       })
       .from(ref2.current, {
-        backgroundSize: '100% 0%'
+        opacity: 0
       })
       .from(ref3.current, {
-        backgroundSize: '100% 0%'
+        opacity: 0
       })
       .from(ref4.current, {
-        backgroundSize: '100% 0%'
+        opacity: 0
       })
 
   }, []);
