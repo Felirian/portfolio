@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import inscriptionIMG from '../../assets/main/inscription.png'
 import styled from "styled-components";
 import {gsap} from "gsap";
@@ -7,26 +7,28 @@ import {COLORS} from "../../shared/variables";
 import {useGSAP} from "@gsap/react";
 
 const MainTitle = () => {
+  const inscription= useRef();
+  const inscription_text= useRef();
+  const inscription_img= useRef();
   gsap.registerPlugin(ScrollTrigger)
-
 
   useGSAP(() => {
     const inscriptionTrigger = {
-      trigger: '#inscription',
+      trigger: inscription.current,
       start: '10% 0%',
       end: '70% 0%',
       scrub: 3,
       markers: 0
     }
 
-    gsap.to('#inscription_text', {
+    gsap.to(inscription_text.current, {
       scrollTrigger: inscriptionTrigger,
       ease: "power1.inOut",
       left: '100vw',
       opacity: 0,
       //filter: 'blur(50px)',
     })
-    gsap.to('#inscription_img', {
+    gsap.to(inscription_img.current, {
       scrollTrigger: inscriptionTrigger,
       ease: "power1.inOut",
       right: '-40%',
@@ -34,9 +36,9 @@ const MainTitle = () => {
     })
   }, []);
   return (
-    <Inscription  id={'inscription'}>
-      <h1 id={'inscription_text'}>PORTFOLIO</h1>
-      <img src={inscriptionIMG} alt={''} id={'inscription_img'}/>
+    <Inscription  ref={inscription}>
+      <h1 ref={inscription_text}>PORTFOLIO</h1>
+      <img src={inscriptionIMG} alt={''} ref={inscription_img}/>
     </Inscription>
   );
 };
