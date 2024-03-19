@@ -13,7 +13,6 @@ const Main = () => {
       <WhyMe/>
       <Block/>
       <WhatCanIDo/>
-
     </MainWr>
   );
 };

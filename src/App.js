@@ -12,15 +12,14 @@ import CodeProjects from "./pages/CodeProjects";
 import PhotoPage from "./pages/PhotoPage";
 
 function App() {
-
-
-
   const [info, setInfo] = useState('')
   const [status, setStatus] = useState({
     hover: false,
     adhesion: false,
   })
   const [bgImage, setBgImage] = useState(null)
+
+
 
   return (
     <MagicCursorInfo.Provider value={[info, setInfo]}>

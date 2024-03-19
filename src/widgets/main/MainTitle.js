@@ -4,12 +4,13 @@ import styled from "styled-components";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {COLORS} from "../../shared/variables";
+import {useGSAP} from "@gsap/react";
 
 const MainTitle = () => {
   gsap.registerPlugin(ScrollTrigger)
 
 
-  useEffect(() => {
+  useGSAP(() => {
     const inscriptionTrigger = {
       trigger: '#inscription',
       start: '10% 0%',
