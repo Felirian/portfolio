@@ -20,7 +20,6 @@ const MainTitle = () => {
       scrub: 3,
       markers: 0
     }
-
     gsap.to(inscription_text.current, {
       scrollTrigger: inscriptionTrigger,
       ease: "power1.inOut",
