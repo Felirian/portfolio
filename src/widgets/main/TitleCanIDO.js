@@ -59,12 +59,14 @@ const Row = styled.h2`
   font-family: Jost, sans-serif;
   font-size: 6vw;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 6vw; /* 114.286% */
 
   width: fit-content;
   color: black;
-
+  
+  text-transform: uppercase;
+  
   background: -webkit-linear-gradient(45deg, ${COLORS.color_1} 60%, ${COLORS.color_3} 0);
   background-size: 200% 100%;
   background-position-x: 10%;

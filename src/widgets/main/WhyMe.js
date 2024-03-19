@@ -57,7 +57,7 @@ const WhyMe = () => {
         <T1 ref={(el) => (fromLeft.current[3] = el)}>Database</T1>
       </Skills>
       <StickyWr>
-        <Title>Why me?</Title>
+        <Title>Ключевые навыки</Title>
       </StickyWr>
       <Skills algin={'start'}>
         <H1 ref={(el) => (fromLeft.current[4] = el)}>Soft skill</H1>
@@ -71,7 +71,7 @@ const WhyMe = () => {
 
 const WhyMeWr = styled.div`
   display: flex;
-  gap: 0.78vw;
+  gap: 3vw;
   top: 0;
   position: relative;
   height: 100vh;
