@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import inscriptionIMG from '../../assets/main/inscription.png'
 import styled from "styled-components";
 import {gsap} from "gsap";
@@ -36,7 +36,7 @@ const MainTitle = () => {
     })
   }, []);
   return (
-    <Inscription  ref={inscription}>
+    <Inscription  ref={inscription} id={'main'}>
       <h1 ref={inscription_text}>PORTFOLIO</h1>
       <img src={inscriptionIMG} alt={''} ref={inscription_img}/>
     </Inscription>
@@ -55,7 +55,7 @@ const Inscription = styled.div`
     bottom: 30%;
     color: ${COLORS.color_1};
     text-align: right;
-    font-family: Jost;
+    font-family: Jost, sans-serif;
     font-size: 17vw;
     font-style: normal;
     font-weight: 300;

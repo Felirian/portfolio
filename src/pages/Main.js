@@ -12,10 +12,10 @@ const Main = () => {
   return (
     <Suspense fallback={<Loader/>}>
       <MainWr>
-        {/*<MainTitle/>*/}
-        {/*<WhyMe/>*/}
+        <MainTitle/>
+        <WhyMe/>
         <Block/>
-        {/*<WhatCanIDo/>*/}
+        <WhatCanIDo/>
         <Contact/>
       </MainWr>
     </Suspense>
