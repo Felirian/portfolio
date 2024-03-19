@@ -4,11 +4,13 @@ import {NavLink} from "react-router-dom";
 import SvgSelector from "../shared/SvgSelector";
 import {H3} from "../app/TextTags";
 import {HoverLink} from "../app/styles";
+import {HashLink} from "react-router-hash-link";
 
 const ROUTERS = [
-  {path: '/', name: "Main"},
+  {path: '/#main', name: "Main"},
   {path: '/projects/code', name: "Code's projects"},
   {path: '/projects/photo', name: 'Photo'},
+  {path: '/#contact', name: 'Contact'},
   // {path: '/price-list', name: 'Price list'},
 ]
 
@@ -23,7 +25,7 @@ const Header = () => {
 
       <Links>
         {ROUTERS.map((el, i)=>(
-          <NavLink
+          <HashLink
             to={el.path}
             key={`header_link${i}`}
             onClick={()=>setOpen(!open)}
@@ -38,7 +40,7 @@ const Header = () => {
             <HoverLink>
               <H3>{el.name}</H3>
             </HoverLink>
-          </NavLink>
+          </HashLink>
         ))}
       </Links>
 

@@ -19,25 +19,29 @@ const TextCanIDo = ({row1, row2, row3, row4}) => {
       scrollTrigger: {
         trigger: RowWrapper.current,
         //markers: true,
-        start: 'center 90%',
+        start: 'center 100%',
         end: 'center 50%',
         ease: "power1.inOut",
-        scrub: true,
+        scrub: 1,
       }
 
     })
     triggerWr
       .from(ref1.current, {
-        opacity: 0
+        opacity: 0,
+        x: '-10%'
       })
       .from(ref2.current, {
-        opacity: 0
+        opacity: 0,
+        x: '-10%'
       })
       .from(ref3.current, {
-        opacity: 0
+        opacity: 0,
+        x: '-10%'
       })
       .from(ref4.current, {
-        opacity: 0
+        opacity: 0,
+        x: '-10%'
       })
 
   }, []);

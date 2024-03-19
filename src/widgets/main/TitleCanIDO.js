@@ -20,7 +20,7 @@ const TitleCanIdo = ({firstRow, secondRow}) => {
       start: 'top 90%',
       end: 'center 50%',
       ease: "power1.inOut",
-      scrub: true,
+      scrub: 3,
     }
     gsap.from(firstRowShadow.current, {
       x: '100%',

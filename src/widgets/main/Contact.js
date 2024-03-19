@@ -25,7 +25,7 @@ const Contact = () => {
           start: 'center 100%',
           end: 'center 70%',
           ease: "power1.inOut",
-          scrub: true,
+          scrub: 1,
         },
       });
       fromTl.from(link, {

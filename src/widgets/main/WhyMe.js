@@ -36,7 +36,7 @@ const WhyMe = () => {
           end: 'center 10%',
           ease: "power2.in",
           //markers: true,
-          scrub: true,
+          scrub: 1,
         },
       });
       toTl.to(element, {
