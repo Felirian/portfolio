@@ -43,6 +43,7 @@ const CodeProjects = () => {
         <LinkWr
           key={`project_${index}`}
           ref={(el) => (projRef.current[index] = el)}
+          id={project.slug}
         >
           <NavLink to={`/projects/code/${project.slug}`}>
             <ExtraTitle

@@ -8,7 +8,7 @@ import {HashLink} from "react-router-hash-link";
 
 const ROUTERS = [
   {path: '/#main', name: "Main"},
-  {path: '/projects/code', name: "Showcase"},
+  {path: '/projects/code#Kak-vse', name: "Showcase"},
   // {path: '/projects/photo', name: 'Photo'},
   {path: '/#contact', name: 'Contact'},
   // {path: '/price-list', name: 'Price list'},

@@ -21,7 +21,8 @@ export const CODE_PROJECTS_DATA = [
     slug: 'Kak-vse',
     realization: '~40 д',
     component: '',
-    mockup: KakVseMockup
+    mockup: KakVseMockup,
+
   },
   {
     name: 'PushKeen',
