@@ -39,16 +39,6 @@ const Contact = () => {
       });
     });
 
-    const manTrigger = gsap.timeline({
-      scrollTrigger: {
-        trigger: contactRef.current,
-        markers: true,
-        start: '0% 100%',
-        end: '0% 10%',
-        ease: "power1.inOut",
-        scrub: 1,
-      },
-    });
   }, []);
 
   return (
