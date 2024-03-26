@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     background-color: ${COLORS.color_5};
     color: ${COLORS.color_1};
+    
   }
 
   @font-face {
