@@ -6,7 +6,6 @@ import {HoverLink} from "../../app/styles";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 import FBXMan from "./FBXMan";
-import ManModel from '../../assets/models/man.fbx'
 import {useFBX} from "@react-three/drei";
 
 const LINKS = [
@@ -43,7 +42,7 @@ const Contact = () => {
 
   return (
     <ContactWr id={'contact'} ref={contactRef}>
-      <FBXMan fbxFile={ManModel}/>
+      <FBXMan/>
       {LINKS.map((link, index) => (
         <LinkWr key={`link_${index}`} ref={(el) => (linkRef.current[index] = el)}>
           <H1>{link.Name}</H1>
@@ -59,7 +58,7 @@ const Contact = () => {
   );
 };
 
-useFBX.preload(ManModel)
+//useFBX.preload(ManModel)
 
 const ContactWr = styled.div`
   width: 100%;

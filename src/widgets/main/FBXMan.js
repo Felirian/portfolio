@@ -2,8 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { COLORS } from "../../shared/variables";
+import  fbxFile  from '../../assets/models/man.fbx'
+import {useFBX} from "@react-three/drei";
 
-const FBXMan = ({ fbxFile }) => {
+const FBXMan = () => {
   const containerRef = useRef(null);
   const fbxModelRef = useRef(null);
   const [loading, setLoading] = useState(true);
@@ -63,11 +65,7 @@ const FBXMan = ({ fbxFile }) => {
 
   return (
     <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
-      {loading && (
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'red' }}>
-          Loading...
-        </div>
-      )}
+
       <div ref={containerRef} style={{ width: '100%', height: '100%', backgroundColor: 'red' }} />
     </div>
   );
