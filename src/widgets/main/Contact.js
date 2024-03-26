@@ -5,6 +5,9 @@ import {H1, H2, H3} from "../../app/TextTags";
 import {HoverLink} from "../../app/styles";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
+import FBXMan from "./FBXMan";
+import ManModel from '../../assets/models/man.fbx'
+import {useFBX} from "@react-three/drei";
 
 const LINKS = [
   {Name: 'Telegram', href: 'https://t.me/FELiRiAN', slug: '@felirian'},
@@ -15,6 +18,7 @@ const LINKS = [
 const Contact = () => {
   gsap.registerPlugin(ScrollTrigger)
   const linkRef = useRef([]);
+  const contactRef = useRef();
 
   useGSAP(() => {
     linkRef.current.forEach((link, index) => {
@@ -33,13 +37,24 @@ const Contact = () => {
         x: '100%',
         opacity: 0
       });
+    });
 
+    const manTrigger = gsap.timeline({
+      scrollTrigger: {
+        trigger: contactRef.current,
+        markers: true,
+        start: '0% 100%',
+        end: '0% 10%',
+        ease: "power1.inOut",
+        scrub: 1,
+      },
     });
   }, []);
 
   return (
-    <ContactWr id={'contact'}>
-      {LINKS.map((link, index)=> (
+    <ContactWr id={'contact'} ref={contactRef}>
+      <FBXMan fbxFile={ManModel}/>
+      {LINKS.map((link, index) => (
         <LinkWr key={`link_${index}`} ref={(el) => (linkRef.current[index] = el)}>
           <H1>{link.Name}</H1>
           <HoverLink>
@@ -49,18 +64,24 @@ const Contact = () => {
           </HoverLink>
         </LinkWr>
       ))}
+
     </ContactWr>
-);
+  );
 };
+
+useFBX.preload(ManModel)
+
 const ContactWr = styled.div`
   width: 100%;
   height: 100vh;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 3vw;
   padding: 0 5vw;
+  position: relative;
+  //background-color: pink;
 `
 const LinkWr = styled.div`
   display: flex;
