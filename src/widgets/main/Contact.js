@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import styled from "styled-components";
 import gsap from "gsap";
 import {H1, H2, H3} from "../../app/TextTags";
@@ -6,6 +6,8 @@ import {HoverLink} from "../../app/styles";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 import FBXMan from "./FBXMan";
+import {PerspectiveCamera} from "@react-three/drei";
+import {Canvas} from "@react-three/fiber";
 
 const LINKS = [
   {Name: 'Telegram', href: 'https://t.me/FELiRiAN', slug: '@felirian'},
@@ -17,6 +19,7 @@ const Contact = () => {
   gsap.registerPlugin(ScrollTrigger)
   const linkRef = useRef([]);
   const contactRef = useRef();
+  const camera = useRef();
 
   useGSAP(() => {
     linkRef.current.forEach((link, index) => {
@@ -39,9 +42,43 @@ const Contact = () => {
 
   }, []);
 
+  useGSAP(() => {
+    const fromModel = gsap.timeline({
+      scrollTrigger: {
+        trigger: contactRef.current,
+        markers: true,
+        start: 'center 100%',
+        end: 'center 60%',
+        ease: "power1.inOut",
+        scrub: 3,
+      },
+    });
+
+    fromModel.from(camera.current?.position, {
+      x: -3,
+      z: 2
+    })
+
+
+  }, [camera.current?.position]);
+
   return (
     <ContactWr id={'contact'} ref={contactRef}>
-      <FBXMan/>
+      <Canvas
+        style={{
+          width: '100%',
+          height: '100vh',
+          //backgroundColor: 'red',
+          position: "absolute",
+          left: 0,
+          top: 0
+        }}
+      >
+        <PerspectiveCamera position={[-0.5, 0, 3]} ref={camera}>
+          <FBXMan/>
+        </PerspectiveCamera>
+      </Canvas>
+
       {LINKS.map((link, index) => (
         <LinkWr key={`link_${index}`} ref={(el) => (linkRef.current[index] = el)}>
           <H1>{link.Name}</H1>
