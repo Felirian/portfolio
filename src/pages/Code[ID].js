@@ -48,11 +48,7 @@ const CodeId = ({currentProject}) => {
         opacity: 0
       });
     });
-
   }, []);
-
-
-
 
   return (
     <>
