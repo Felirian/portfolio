@@ -6,7 +6,7 @@ export const ExtraTitle = styled.h1`
   font-size: 3.28vw;
   font-family: Jost, sans-serif; 
   font-weight: 800; 
-  line-height: 4.09vw;
+  line-height: 3.28vw;
 `
 
 export const Title = styled.h1`

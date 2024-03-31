@@ -1,7 +1,7 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import styled from "styled-components";
 import gsap from "gsap";
-import {H1, H2, H3} from "../../app/TextTags";
+import {H1, H3} from "../../app/TextTags";
 import {HoverLink} from "../../app/styles";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
@@ -46,11 +46,11 @@ const Contact = () => {
     const fromModel = gsap.timeline({
       scrollTrigger: {
         trigger: contactRef.current,
-        markers: true,
+        //markers: true,
         start: 'center 100%',
         end: 'center 60%',
         ease: "power1.inOut",
-        scrub: 3,
+        scrub: 2,
       },
     });
 

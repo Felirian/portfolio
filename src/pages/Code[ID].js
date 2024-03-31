@@ -1,18 +1,20 @@
-import React, {useContext, useEffect} from 'react';
-import {HoverLink, Null} from "../app/styles";
+import React, {useContext, useEffect, useRef} from 'react';
+import {HoverLink} from "../app/styles";
 import {CODE_PROJECTS_DATA} from "../entities/CODE_PROJECTS";
 import styled from "styled-components";
-import {redirect, useNavigation, useParams} from "react-router-dom";
 import {BackGroundImageContext} from "../app/context";
 import {COLORS} from "../shared/variables";
-import {ExtraTitle, H1, H2, H3, T1} from "../app/TextTags";
-
+import {ExtraTitle, H2, H3, T1} from "../app/TextTags";
+import {useGSAP} from "@gsap/react";
+import gsap from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 const CodeId = ({currentProject}) => {
   const [image, setImage] = useContext(BackGroundImageContext)
   const nextProject = currentProject + 1 === CODE_PROJECTS_DATA.length ? 0 : currentProject + 1
-
+  const tagsRef = useRef([]);
   setImage(CODE_PROJECTS_DATA[nextProject].mainImg)
 
+  gsap.registerPlugin(ScrollTrigger)
 
   useEffect(() => {
     const checkScroll = () => {
@@ -28,6 +30,30 @@ const CodeId = ({currentProject}) => {
     };
   }, []);
 
+  useGSAP(() => {
+    tagsRef.current.forEach((tags, index) => {
+      const fromTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: tags,
+          //markers: true,
+          start: `center ${100 - index*10}%`,
+          end: `center ${90 - index*10}%`,
+          ease: "power1.inOut",
+          scrub: 1,
+        },
+      });
+      fromTl.from(tags, {
+        direction: 2,
+        y: '200%',
+        opacity: 0
+      });
+    });
+
+  }, []);
+
+
+
+
   return (
     <>
       <MainImage src={CODE_PROJECTS_DATA[currentProject].mainImg} alt={' '}/>
@@ -35,19 +61,36 @@ const CodeId = ({currentProject}) => {
         <ProjectInfo>
           <HoverLink>
             <a href={CODE_PROJECTS_DATA[currentProject].link} target={'_blank'}>
-              <ExtraTitle>{CODE_PROJECTS_DATA[currentProject].name}</ExtraTitle>
+              <ExtraTitle >{CODE_PROJECTS_DATA[currentProject].name}</ExtraTitle>
             </a>
           </HoverLink>
           <T1>{CODE_PROJECTS_DATA[currentProject].info}</T1>
           <br/>
-          <H2>{CODE_PROJECTS_DATA[currentProject].title}</H2>
-          <Stack>
-            <H1>Stack:</H1>
-            {CODE_PROJECTS_DATA[currentProject].stack.map((tech, i) => (
-              <H2 key={`tech_${tech}`}>{tech}</H2>
-            ))}
-          </Stack>
         </ProjectInfo>
+
+        <Stack>
+          <H2>Stack:</H2>
+          {CODE_PROJECTS_DATA[currentProject].stack.map((tech, i) => (
+            <H2
+              key={`tech_${tech}`}
+              ref={(el) => (tagsRef.current[i] = el)}
+            > {tech}</H2>
+          ))}
+        </Stack>
+
+        <Blocks>
+          {CODE_PROJECTS_DATA[currentProject].text.map((block, index)=>(
+            <H3
+              key={`block_text_${index}`}
+              style={{
+                marginLeft: index % 2 === 0 ? 0 : 'auto'
+              }}
+            >{block}</H3>
+          ))}
+        </Blocks>
+
+
+
 
         <img src={CODE_PROJECTS_DATA[currentProject].mockup} alt={' '}/>
       </CodeWr>
@@ -67,11 +110,15 @@ const CodeWr = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  width: 100%;
 `
 const ProjectInfo = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 1.56vw;
+  gap: 1vw;
+  width: 90%;
+  margin-top: 3vw;
   a {
     display: block;
     width: fit-content;
@@ -91,8 +138,22 @@ const ProjectInfo = styled.section`
     color: ${COLORS.color_2}
   }
 `
+const Blocks = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10vw;
+  width: 90%;
+  h4 {
+    max-width: 50%;
+  }
+`
 const Stack = styled.div`
   display: flex;
+  align-items: end;
+  justify-content: right;
+  width: 90%;
+  margin: 10vw 0;
+  
 `
 
 

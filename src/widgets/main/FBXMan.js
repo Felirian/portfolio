@@ -1,9 +1,6 @@
-import React, {useEffect, useRef} from 'react';
-import {Canvas, useFrame} from '@react-three/fiber';
+import React, {useRef} from 'react';
 import fbxModel from '../../assets/models/man.fbx'
-import {PerspectiveCamera, useFBX} from "@react-three/drei";
-import {useGSAP} from "@gsap/react";
-import gsap from "gsap";
+import {useFBX} from "@react-three/drei";
 
 const FBXMan = ({contactRef}) => {
   const group = useRef();
