@@ -6,7 +6,6 @@ import {HoverLink} from "../../app/styles";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 import FBXMan from "./FBXMan";
-import {useFBX} from "@react-three/drei";
 
 const LINKS = [
   {Name: 'Telegram', href: 'https://t.me/FELiRiAN', slug: '@felirian'},
@@ -57,8 +56,6 @@ const Contact = () => {
     </ContactWr>
   );
 };
-
-//useFBX.preload(ManModel)
 
 const ContactWr = styled.div`
   width: 100%;

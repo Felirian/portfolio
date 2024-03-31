@@ -1,73 +1,39 @@
-import React, { useRef, useEffect, useState } from 'react';
-import * as THREE from 'three';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-import { COLORS } from "../../shared/variables";
-import  fbxFile  from '../../assets/models/man.fbx'
-import {useFBX} from "@react-three/drei";
+import React, {useRef} from 'react';
+import {Canvas} from '@react-three/fiber';
+import fbxModel from '../../assets/models/man.fbx'
+import {PerspectiveCamera, useFBX} from "@react-three/drei";
 
 const FBXMan = () => {
-  const containerRef = useRef(null);
-  const fbxModelRef = useRef(null);
-  const [loading, setLoading] = useState(true);
+  const group = useRef();
 
-  useEffect(() => {
-    let scene, camera, renderer, controls;
-
-    const init = () => {
-      // Создаем сцену
-      scene = new THREE.Scene();
-
-      // Создаем камеру
-      camera = new THREE.PerspectiveCamera(75, containerRef.current.clientWidth / containerRef.current.clientHeight, 0.1, 1000);
-      camera.position.set(-0.5, 0, 1);
-
-      // Создаем рендерер
-      renderer = new THREE.WebGLRenderer({ antialias: true });
-      renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
-      renderer.setClearColor(COLORS.color_5)
-      containerRef.current.appendChild(renderer.domElement);
-
-      // Добавляем общее освещение
-      const ambientLight = new THREE.AmbientLight(0xffffff, 10);
-      scene.add(ambientLight);
-
-      // Загружаем FBX файл
-      const loader = new FBXLoader();
-      loader.load(fbxFile, (object) => {
-        object.scale.set(0.1, 0.1, 0.1);
-        object.position.set(0, -1, 0);
-        scene.add(object);
-        fbxModelRef.current = object; // сохраняем ссылку на модель
-        setLoading(false); // устанавливаем loading в false после загрузки модели
-      });
-
-    };
-
-    const animate = () => {
-      requestAnimationFrame(animate);
-
-      // Добавляем вращение модели по оси Y
-      if (fbxModelRef.current) {
-        fbxModelRef.current.rotation.y += 0.001; // Измените скорость вращения по вашему усмотрению
-      }
-
-      renderer.render(scene, camera);
-    };
-
-    init();
-    animate();
-
-    return () => {
-      containerRef.current.removeChild(renderer.domElement);
-      renderer.dispose();
-    };
-  }, [fbxFile]);
+  // Загрузка модели FBX
+  const fbxLoad = useFBX(fbxModel)
+  console.log(fbxLoad)
 
   return (
-    <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
+    <Canvas
+      style={{
+        width: '100%',
+        height: '100vh',
+        //backgroundColor: 'red',
+        position: "absolute",
+        left: 0,
+        top: 0
+      }}
+    >
+      <PerspectiveCamera position={[-0.5, 0, 1]} >
+        <ambientLight intensity={100}/>
+        <pointLight position={[1, 1, 1]}/>
 
-      <div ref={containerRef} style={{ width: '100%', height: '100%', backgroundColor: 'red' }} />
-    </div>
+        <group ref={group} scale={[0.1, 0.1, 0.1]} position={[0, -1, 0]}>
+
+          <primitive object={fbxLoad}/>
+
+        </group>
+
+
+      </PerspectiveCamera>
+    </Canvas>
   );
 };
 
