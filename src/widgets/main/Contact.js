@@ -75,7 +75,7 @@ const Contact = () => {
         }}
       >
         <PerspectiveCamera position={[-0.5, 0, 3]} ref={camera}>
-          <FBXMan/>
+          {/*<FBXMan/>*/}
         </PerspectiveCamera>
       </Canvas>
 

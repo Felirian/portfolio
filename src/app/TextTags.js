@@ -46,6 +46,6 @@ export const T1 = styled.p`
   font-family: Jost, sans-serif;
   font-size: 1.17vw;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400; //300
   line-height: 1.33vw; /* 113.333% */
 `
